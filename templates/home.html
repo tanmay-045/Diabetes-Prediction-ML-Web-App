@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: left;
+        }
+        .form-container {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 30px;
+            max-width: 500px;
+            margin: 30px auto;
+            border-radius: 10px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction Form</h1>
+    <p>
+        This application is trained using the Pima Indians Diabetes Database, which contains health-related data from women aged 21 and older. The dataset includes important health parameters such as glucose levels, insulin, BMI, and others to predict diabetes.
+    </p>
+    <p>
+        The prediction model used here is a Logistic Regression model. This type of model is well-suited for binary classification problems such as predicting whether a person has diabetes or not. Logistic Regression works by estimating the probability that a given instance belongs to a certain class, in this case, diabetic or non-diabetic.
+    </p>
+
+    <div class="form-container">
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <input type="text" name="Pregnancies" placeholder="Pregnancies (0-17)" required="required" /><br>
+            <input type="text" name="Glucose" placeholder="Glucose (0-199)" required="required" /><br>
+            <input type="text" name="BloodPressure" placeholder="Blood Pressure (0-122)" required="required" /><br>
+            <input type="text" name="SkinThickness" placeholder="Skin Thickness (0-99)" required="required" /><br>
+            <input type="text" name="Insulin" placeholder="Insulin (0-846)" required="required" /><br>
+            <input type="text" name="BMI" placeholder="BMI (0-67.1)" required="required" /><br>
+            <input type="text" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function (0.078-2.42)" required="required" /><br>
+            <input type="text" name="Age" placeholder="Age (21-81)" required="required" /><br>
+            <button type="submit" class="btn btn-primary btn-large">Predict</button>
+        </form>
+    </div>
+
+    <p style="margin-top: 30px;">The model used has an approximate accuracy of 77% in predicting diabetes and relies on key health indicators to generate its predictions.</p>
+</body>
+</html>
